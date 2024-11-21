@@ -9,12 +9,69 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var answerButton1: UIButton!
+    @IBOutlet weak var answerButton2: UIButton!
+    @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var progressBar: UIProgressView!
+    @IBOutlet weak var answerButton3: UIButton!
+    @IBOutlet weak var score: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        score.text = "Score: 0"
+        updateUI()
     }
-
+    var currentQuestion = 0
+    var scoreVariable = 0
+    @IBAction func answerButtonTapped(_ sender: UIButton) {
+        
+        let actualAnswer: String = getAnswer(arrayOfQuestions: questions, index: currentQuestion)
+        if sender.titleLabel?.text == actualAnswer{
+            sender.backgroundColor = .green
+            scoreVariable+=1
+            score.text = "Score: \(scoreVariable)"
+        }else{
+            sender.backgroundColor = .red
+        }
+        currentQuestion += 1
+       
+        if scoreVariable == questions.count {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                self.congratulate()
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3){
+                self.updateUI()
+            }}
+        else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            
+            self.updateUI()
+        }}
+        if currentQuestion >= questions.count{
+            currentQuestion = 0
+            scoreVariable = 0
+        }
+        
+    }
+    
+    func congratulate(){
+        questionLabel.text = "You know me well, we can be friends, but do not look into source code it is embarrasing"
+    }
+    func updateUI(){
+        score.text = "Score: \(scoreVariable)"
+        questionLabel.text = questions[currentQuestion].question
+        
+        answerButton1.setTitle(questions[currentQuestion].answers[0], for: .normal)
+        answerButton2.setTitle(questions[currentQuestion].answers[1], for: .normal)
+        answerButton3.setTitle(questions[currentQuestion].answers[2], for: .normal)
+        
+        
+        answerButton1.backgroundColor = .blue
+        answerButton2.backgroundColor = .blue
+        answerButton3.backgroundColor = .blue
+        let progress: Float = Float(currentQuestion)/Float(questions.count)
+        progressBar.progress = progress
+    }
 
 }
 
