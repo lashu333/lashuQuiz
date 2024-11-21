@@ -24,8 +24,7 @@ class ViewController: UIViewController {
     var currentQuestion = 0
     var scoreVariable = 0
     @IBAction func answerButtonTapped(_ sender: UIButton) {
-        
-        let actualAnswer: String = getAnswer(arrayOfQuestions: questions, index: currentQuestion)
+        let actualAnswer = questions[currentQuestion].actualAnswer
         if sender.titleLabel?.text == actualAnswer{
             sender.backgroundColor = .green
             scoreVariable+=1
@@ -61,9 +60,9 @@ class ViewController: UIViewController {
         score.text = "Score: \(scoreVariable)"
         questionLabel.text = questions[currentQuestion].question
         
-        answerButton1.setTitle(questions[currentQuestion].answers[0], for: .normal)
-        answerButton2.setTitle(questions[currentQuestion].answers[1], for: .normal)
-        answerButton3.setTitle(questions[currentQuestion].answers[2], for: .normal)
+        answerButton1.setTitle(questions[currentQuestion].getChoice1, for: .normal)
+        answerButton2.setTitle(questions[currentQuestion].getChoice2, for: .normal)
+        answerButton3.setTitle(questions[currentQuestion].getChoice3, for: .normal)
         
         
         answerButton1.backgroundColor = .blue
