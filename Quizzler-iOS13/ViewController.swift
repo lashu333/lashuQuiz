@@ -47,6 +47,8 @@ class ViewController: UIViewController {
             self.updateUI()
         }}
         if currentQuestion >= questions.count{
+            let resultView = ResultViewController()
+            self.present(resultView, animated: true, completion: nil)
             currentQuestion = 0
             scoreVariable = 0
         }
