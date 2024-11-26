@@ -33,7 +33,7 @@ class ViewController: UIViewController {
             sender.backgroundColor = .red
         }
         currentQuestion += 1
-       
+        
         if scoreVariable == questions.count {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1){
                 self.congratulate()
@@ -43,9 +43,9 @@ class ViewController: UIViewController {
             }}
         else {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            
-            self.updateUI()
-        }}
+                
+                self.updateUI()
+            }}
         if currentQuestion >= questions.count{
             let resultView = ResultViewController()
             self.present(resultView, animated: true, completion: nil)
@@ -73,6 +73,6 @@ class ViewController: UIViewController {
         let progress: Float = Float(currentQuestion)/Float(questions.count)
         progressBar.progress = progress
     }
-
+    
 }
 

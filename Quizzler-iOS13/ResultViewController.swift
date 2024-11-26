@@ -16,6 +16,11 @@ class ResultViewController: UIViewController{
         let label = UILabel()
         label.text = "Result"
         label.textColor = .white
+        label.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(label)
+        NSLayoutConstraint.activate([
+                label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                label.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            ])
     }
 }
