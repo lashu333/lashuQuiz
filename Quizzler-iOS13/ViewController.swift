@@ -48,6 +48,8 @@ class ViewController: UIViewController {
             }}
         if currentQuestion >= questions.count{
             let resultView = ResultViewController()
+            self.delegate? = resultView
+            delegate?.gotQuiz(questions)
             self.present(resultView, animated: true, completion: nil)
             currentQuestion = 0
             scoreVariable = 0
