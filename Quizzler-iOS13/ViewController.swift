@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var answerButton3: UIButton!
     @IBOutlet weak var score: UILabel!
-    
+    weak var delegate: QuizViewControllerProtocol?
     override func viewDidLoad() {
         super.viewDidLoad()
         score.text = "Score: 0"

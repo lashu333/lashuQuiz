@@ -9,6 +9,7 @@
 import UIKit
 
 class ResultViewController: UIViewController, QuizViewControllerProtocol{
+    
     func gotQuiz(_ quiz: [Question]) {
         let questionsCount = quiz.count
         
