@@ -50,7 +50,7 @@ class ViewController: UIViewController {
             let resultView = ResultViewController()
             self.delegate? = resultView
             delegate?.gotQuiz(questions)
-            self.present(resultView, animated: true, completion: nil)
+            navigationController?.pushViewController(resultView, animated: true)
             currentQuestion = 0
             scoreVariable = 0
         }
