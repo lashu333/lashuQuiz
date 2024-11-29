@@ -76,3 +76,6 @@ class ViewController: UIViewController {
     
 }
 
+protocol QuizViewControllerProtocol: AnyObject{
+    func gotQuiz(_ quiz: [Question])
+}

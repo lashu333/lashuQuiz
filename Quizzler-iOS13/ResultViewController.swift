@@ -8,7 +8,11 @@
 
 import UIKit
 
-class ResultViewController: UIViewController{
+class ResultViewController: UIViewController, QuizViewControllerProtocol{
+    func gotQuiz(_ quiz: [Question]) {
+        let questionsCount = quiz.count
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
