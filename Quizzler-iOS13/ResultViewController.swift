@@ -12,7 +12,6 @@ class ResultViewController: UIViewController, QuizViewControllerProtocol{
     
     var questions: [Question] = []
     func gotQuiz(_ quiz: [Question]) {
-        let questionsCount = quiz.count
         self.questions = quiz
     }
     
